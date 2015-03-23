@@ -1,0 +1,20 @@
+{
+  "name": "noyo-client-standalone",
+  "version": "0.0.1",
+  "description": "simple client to interact with the exsting erlang noyo",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "ansamb",
+  "license": "AGPL",
+  "dependencies": {
+    "node-uuid": "1.4.2",
+    "underscore": "1.7.0",
+    "websocket": "1.0.8",
+    "when": "3.6.4",
+    "z-schema": "2.4.8",
+    "async": "0.2.9",
+    "request": "2.39.0"
+  }
+}
