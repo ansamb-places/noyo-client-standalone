@@ -47,3 +47,11 @@ module.exports =
 				data:
 					data.content_ids
 			,kernel_common
+
+		updateUri: (data) ->
+			_.extend
+				method: 'UPDATE_URI'
+				spl: data.place
+				dpl: data.place
+				data: data.refs
+			,kernel_common

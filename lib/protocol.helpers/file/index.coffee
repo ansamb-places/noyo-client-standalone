@@ -24,11 +24,12 @@ module.exports = api =
 				local_uri: "file://#{abs_file_path}"
 			ansamb_extras: content.ansamb_extras
 			update: update
-		protoBuilder.file.downloadRequest(dl_obj).send (err,reply) ->
+		netMessage = protoBuilder.file.downloadRequest(dl_obj)
+		netMessage.send (err,reply) ->
 			if reply.code != api.code.ok
 				cb "Error on starting download", false
 			else
-				cb null, true
+				cb null, netMessage.getMessageId()
 	###
 	@renameOptions =
 		old_content_id: string
@@ -75,3 +76,12 @@ module.exports = api =
 
 		protoBuilder.file.resume(data).send (err, reply) ->
 			cb err, reply?.data
+
+	updateUri: (place_id, refs, cb) ->
+		data = 
+			place: place_id
+			refs: refs
+		protoBuilder.file.updateUri(data).send (err, reply) ->
+			cb err, reply
+
+
